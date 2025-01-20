@@ -3,138 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Website</title>
+    <title>Cool Frontend Website</title>
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: black;
-            color: yellow;
-        }
-
-        header {
-            background: #333;
-            color: rgb(255, 251, 0);
-            padding: 1rem 0;
             text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            color: white;
+            animation: fadeIn 2s ease-in-out;
         }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #444;
-            padding: 0.5rem;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        nav a {
-            color: rgb(0, 238, 255);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
+        h1 {
+            font-size: 3rem;
+            margin-top: 50px;
+            animation: slideIn 1.5s ease-in-out;
         }
 
-        nav a:hover {
-            background: #555;
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        .container {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: auto;
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background: #ff758c;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+        button:hover {
+            background-color: #ff5277;
+            transform: scale(1.1);
         }
 
-        .column {
-            flex: 1;
-            min-width: 300px;
-            background: #f4f4f4;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #222;
-            color: rgba(0, 255, 234, 0.829);
-        }
-
-        footer {
-            background: #333;
-            color: rgb(0, 255, 115);
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-
-            .row {
-                flex-direction: column;
-            }
+        #confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1> TRIAL:1 </h1>
-        <p>Adapts to different screen sizes!</p>
-    </header>
 
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-<button onclick="alert('Hello, welcome to my website! It is good that u are visiting my website')">Click Me</button>
+    <h1>Welcome to My Cool Website</h1>
 
-    <div class="container">
-        <div class="row">
-            <div class="column">
-                <h2 style="color:dodgerblue;">Planning and Design</h2>
-                <p>Requirement Analysis: Define the website's purpose, target audience, and goals.
-                    Wireframing and Prototyping: Create visual layouts for the structure and functionality.
-                    UI/UX Design: Focus on user experience and aesthetic appeal using tools like Figma or Adobe XD.
-                    Content Strategy: Plan the website's text, images, and multimedia.
-                    Technology Stack Selection: Decide on front-end (HTML, CSS, JavaScript), back-end (Node.js, Django), and CMS (WordPress, Drupal).
-                    </p>
-            </div>
-            <div class="column">
-                <h2 style="color:dodgerblue;"> Development and Integration</h2>
-                <p>Front-End Development: Use HTML, CSS, and JavaScript to develop responsive layouts.
-                    Back-End Development: Create server-side logic using languages like Python, PHP, or Java.
-                    Database Integration: Store and retrieve data using MySQL, MongoDB, etc.
-                    API Integration: Connect third-party services like payment gateways or social logins.
-                    Version Control: Use tools like Git to manage and track code changes.
-                    Testing: Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
-            </div>
-            <div class="column">
-                <h2 style="color:dodgerblue;"></h2style>Deployment / Maintenance</h2>
-                <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server.
-                    Domain Configuration: Purchase and link a domain to your hosting.
-                    SEO Optimization: Optimize for search engines with meta tags, sitemaps, and structured data.
-                    Website Launch: Go live after final reviews and stakeholder approvals.
-                    Monitoring and Updates: Use analytics tools to track performance and address issues.
-                    Regular Maintenance: Update software, fix bugs, and refresh content regularly.
-                    </p>
-            </div>
-        </div>
-    </div>
+    <p>This website has cool animations and effects. Try clicking the button below!</p>
 
-    <footer>
-        <p>&copy; this is only to learn</p>
-    </footer>
+    <button id="clickMeButton">Click Me</button>
+
+    <div id="confetti-container"></div>
+
+    <script>
+        // Confetti Animation
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                const size = Math.random() * 8 + 4;
+                const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+                confetti.style.position = 'absolute';
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.borderRadius = '50%';
+                confetti.style.top = `${Math.random() * window.innerHeight}px`;
+                confetti.style.left = `${Math.random() * window.innerWidth}px`;
+                confetti.style.opacity = Math.random();
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+
+                confettiContainer.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Falling animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Button Click Event
+        document.getElementById('clickMeButton').addEventListener('click', () => {
+            createConfetti();
+            alert('Enjoy the confetti! 🎉');
+        });
+    </script>
+
 </body>
 </html>
