@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Page</title>
+    <style>
+        body {
+            background-color: black;
+            color: yellow;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            line-height: 1.6;
+        }
+        header, footer {
+            background: #333;
+            color: yellow;
+            padding: 1rem 0;
+        }
+        button {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #444;
+            color: yellow;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Game Page</h1>
+        <p>Click below to visit an amazing game website!</p>
+    </header>
+    <main>
+        <button onclick="openGameWebsite()">Go to Game</button>
+    </main>
+    <footer>
+        <p>&copy; This is only to learn</p>
+    </footer>
+    <script>
+        function openGameWebsite() {
+            window.open('https://hetskuller.github.io/game/', '_blank');
+        }
+    </script>
+</body>
+</html>
