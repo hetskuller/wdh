@@ -84,6 +84,17 @@
                 flex-direction: column;
             }
         }
+
+        /* Confetti Animation */
+        #confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -98,7 +109,10 @@
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
     </nav>
-<button onclick="alert('Hello, welcome to my website! It is good that u are visiting my website')">Click Me</button>
+
+    <button id="clickMeButton">Click Me</button>
+
+    <div id="confetti-container"></div>
 
     <div class="container">
         <div class="row">
@@ -109,7 +123,7 @@
                     UI/UX Design: Focus on user experience and aesthetic appeal using tools like Figma or Adobe XD.
                     Content Strategy: Plan the website's text, images, and multimedia.
                     Technology Stack Selection: Decide on front-end (HTML, CSS, JavaScript), back-end (Node.js, Django), and CMS (WordPress, Drupal).
-                    </p>
+                </p>
             </div>
             <div class="column">
                 <h2 style="color:dodgerblue;"> Development and Integration</h2>
@@ -128,7 +142,7 @@
                     Website Launch: Go live after final reviews and stakeholder approvals.
                     Monitoring and Updates: Use analytics tools to track performance and address issues.
                     Regular Maintenance: Update software, fix bugs, and refresh content regularly.
-                    </p>
+                </p>
             </div>
         </div>
     </div>
@@ -136,5 +150,51 @@
     <footer>
         <p>&copy; this is only to learn</p>
     </footer>
+
+    <script>
+        // Confetti Animation
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                const size = Math.random() * 8 + 4;
+                const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+                confetti.style.position = 'absolute';
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.borderRadius = '50%';
+                confetti.style.top = `${Math.random() * window.innerHeight}px`;
+                confetti.style.left = `${Math.random() * window.innerWidth}px`;
+                confetti.style.opacity = Math.random();
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+
+                confettiContainer.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Falling animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Button Click Event
+        document.getElementById('clickMeButton').addEventListener('click', () => {
+            createConfetti();
+            alert('Hello, welcome to my website! It is good that u are visiting my website');
+        });
+    </script>
 </body>
 </html>
