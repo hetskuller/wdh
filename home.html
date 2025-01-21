@@ -27,59 +27,24 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
-        nav {
-            background: #333;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .menu {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .menu a {
-            color: #ffcc33;
-            font-weight: bold;
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            text-decoration: none;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
         }
 
-        .menu a:hover {
-            color: #ff6b6b;
-        }
-
-        .container {
+        main {
             padding: 2rem;
             max-width: 1200px;
             margin: auto;
+            text-align: center;
         }
 
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        .column {
-            flex: 1;
-            min-width: 300px;
-            background: linear-gradient(135deg, #2a2a72, #009ffd);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .column:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        main p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            line-height: 1.8;
+            color: rgba(0, 255, 234, 0.75);
         }
 
         footer {
@@ -91,45 +56,18 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>TRIAL:1</h1>
-        <p>Adapts to different screen sizes!</p>
+        <h1>Welcome to the Home Page</h1>
     </header>
-
-    <nav>
-        <div class="menu">
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html">Login</a>
-            <a href="game.html">Game</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="column">
-                <h2>Planning and Design</h2>
-                <p>Requirement Analysis: Define the website's purpose, target audience, and goals...</p>
-            </div>
-            <div class="column">
-                <h2>Development and Integration</h2>
-                <p>Front-End Development: Use HTML, CSS, and JavaScript to develop responsive layouts...</p>
-            </div>
-            <div class="column">
-                <h2>Deployment / Maintenance</h2>
-                <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server...</p>
-            </div>
-        </div>
-    </div>
-
+    <main>
+        <p>This is the home page of our responsive website. Explore the other sections to learn more!</p>
+    </main>
     <footer>
-        <p>&copy; This is only to learn</p>
+        <p>&copy; this is only to learn </p>
     </footer>
-
 </body>
 </html>
