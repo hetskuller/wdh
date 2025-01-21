@@ -122,7 +122,7 @@
             letter-spacing: 1px;
         }
 
-        /* Buttons and Toggles */
+        /* Buttons */
         button {
             background: linear-gradient(135deg, #ff7e5f, #feb47b);
             color: white;
@@ -133,6 +133,8 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 1rem;
+            display: block;
         }
 
         button:hover {
@@ -176,22 +178,6 @@
         .toggle.active::after {
             transform: translateX(25px);
         }
-
-        /* Add animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        header, .column, footer {
-            animation: fadeIn 0.6s ease;
-        }
     </style>
 </head>
 <body>
@@ -229,9 +215,40 @@
                 <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server...</p>
             </div>
         </div>
+        <button id="clickMeButton">Click Me</button>
+        <div id="confetti-container"></div>
     </div>
     <footer>
         <p>&copy; This is only to learn</p>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+
+        // Dark Mode Toggle
+        const toggleButton = document.getElementById("toggleButton");
+
+        toggleButton.addEventListener("click", () => {
+            toggleButton.classList.toggle("active");
+            if (toggleButton.classList.contains("active")) {
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+            } else {
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "yellow";
+            }
+        });
+
+        // Click Me Button
+        document.getElementById("clickMeButton").addEventListener("click", () => {
+            alert("Hello, welcome to my website!");
+        });
+    </script>
 </body>
 </html>
