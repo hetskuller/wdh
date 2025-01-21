@@ -27,24 +27,79 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        nav {
+            background: #333;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
 
-        main {
+        .hamburger {
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #444;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            color: #ffcc33;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #555;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ff6b6b;
+        }
+
+        .container {
             padding: 2rem;
             max-width: 1200px;
             margin: auto;
-            text-align: center;
         }
 
-        main p {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            line-height: 1.8;
-            color: rgba(0, 255, 234, 0.75);
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, #2a2a72, #009ffd);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .column:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
         footer {
@@ -57,17 +112,55 @@
             letter-spacing: 1px;
         }
 
+        /* Additional Styling for the Home Page */
+        .home-content {
+            background-color: #009ffd; /* Blue Background */
+            color: white;  /* White font color */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-content h2 {
+            color: white;
+        }
+
     </style>
 </head>
 <body>
     <header>
         <h1>Welcome to the Home Page</h1>
     </header>
-    <main>
+
+    <nav>
+        <span class="hamburger" id="hamburger">&#9776;</span>
+        <div class="menu" id="menu">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+            <a href="game.html">Game</a>
+        </div>
+    </nav>
+
+    <div class="container home-content">
+        <h2>Explore Our Website</h2>
         <p>This is the home page of our responsive website. Explore the other sections to learn more!</p>
-    </main>
+    </div>
+
     <footer>
-        <p>&copy; this is only to learn </p>
+        <p>&copy; This is only to learn</p>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
