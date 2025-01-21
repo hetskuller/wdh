@@ -5,17 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background-color: black;
-            color:  rgba(0, 255, 234, 0.829);;
+            color: rgba(0, 255, 234, 0.829);
             font-family: Arial, sans-serif;
             line-height: 1.6;
         }
-        header, footer {
+
+        header {
             background: #333;
+            color: rgb(255, 251, 0);
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        main p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            line-height: 1.8;
+            color: rgba(0, 255, 234, 0.75);
+        }
+
+        footer {
+            background: #333;
+            color: rgb(0, 255, 115);
             text-align: center;
             padding: 1rem 0;
+            margin-top: 2rem;
         }
+        
+        footer p {
+            font-size: 0.9rem;
+        }
+
     </style>
 </head>
 <body>
