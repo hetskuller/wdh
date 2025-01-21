@@ -29,8 +29,10 @@
         nav {
             display: flex;
             justify-content: center;
+            align-items: center;
             background: #444;
             padding: 0.5rem;
+            position: relative;
         }
 
         nav a {
@@ -41,6 +43,41 @@
 
         nav a:hover {
             background: #555;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            margin-left: auto;
+        }
+
+        .menu {
+            display: flex;
+            gap: 10px;
+        }
+
+        .menu.active {
+            display: block;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #444;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
         }
 
         .container {
@@ -73,28 +110,6 @@
             padding: 1rem 0;
             margin-top: 2rem;
         }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-
-            .row {
-                flex-direction: column;
-            }
-        }
-
-        /* Confetti Animation */
-        #confetti-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
     </style>
 </head>
 <body>
@@ -104,12 +119,15 @@
     </header>
 
     <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a>
-         <a href="game.html">game</a>
+        <span class="hamburger" id="hamburger">&#9776;</span>
+        <div class="menu" id="menu">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+            <a href="game.html">game</a>
+        </div>
     </nav>
 
     <button id="clickMeButton">Click Me</button>
@@ -137,7 +155,7 @@
                     Testing: Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
             </div>
             <div class="column">
-                <h2 style="color:dodgerblue;"></h2style>Deployment / Maintenance</h2>
+                <h2 style="color:dodgerblue;">Deployment / Maintenance</h2>
                 <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server.
                     Domain Configuration: Purchase and link a domain to your hosting.
                     SEO Optimization: Optimize for search engines with meta tags, sitemaps, and structured data.
@@ -154,6 +172,14 @@
     </footer>
 
     <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+
         // Confetti Animation
         function createConfetti() {
             const confettiContainer = document.getElementById('confetti-container');
