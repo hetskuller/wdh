@@ -34,39 +34,19 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-
-        .hamburger {
-            font-size: 28px;
-            cursor: pointer;
-            color: white;
         }
 
         .menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: #444;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .menu.active {
-            display: block;
+            display: flex;
+            gap: 1rem;
         }
 
         .menu a {
-            display: block;
             color: #ffcc33;
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
             padding: 0.5rem 0;
-            border-bottom: 1px solid #555;
             transition: color 0.3s ease;
         }
 
@@ -111,30 +91,16 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
-
-        /* Additional Styling for the Home Page */
-        .home-content {
-            background-color: #009ffd; /* Blue Background */
-            color: white;  /* White font color */
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .home-content h2 {
-            color: white;
-        }
-
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to the Home Page</h1>
+        <h1>TRIAL:1</h1>
+        <p>Adapts to different screen sizes!</p>
     </header>
 
     <nav>
-        <span class="hamburger" id="hamburger">&#9776;</span>
-        <div class="menu" id="menu">
+        <div class="menu">
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -144,23 +110,26 @@
         </div>
     </nav>
 
-    <div class="container home-content">
-        <h2>Explore Our Website</h2>
-        <p>This is the home page of our responsive website. Explore the other sections to learn more!</p>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <h2>Planning and Design</h2>
+                <p>Requirement Analysis: Define the website's purpose, target audience, and goals...</p>
+            </div>
+            <div class="column">
+                <h2>Development and Integration</h2>
+                <p>Front-End Development: Use HTML, CSS, and JavaScript to develop responsive layouts...</p>
+            </div>
+            <div class="column">
+                <h2>Deployment / Maintenance</h2>
+                <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server...</p>
+            </div>
+        </div>
     </div>
 
     <footer>
         <p>&copy; This is only to learn</p>
     </footer>
 
-    <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById("hamburger");
-        const menu = document.getElementById("menu");
-
-        hamburger.addEventListener("click", () => {
-            menu.classList.toggle("active");
-        });
-    </script>
 </body>
 </html>
