@@ -28,7 +28,7 @@
 
         nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             background: #444;
             padding: 0.5rem;
@@ -50,7 +50,6 @@
             font-size: 24px;
             cursor: pointer;
             color: white;
-            margin-left: auto;
         }
 
         .menu {
@@ -110,6 +109,42 @@
             padding: 1rem 0;
             margin-top: 2rem;
         }
+
+        /* Toggle Button */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 25px;
+            background: #666;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .toggle::after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 21px;
+            height: 21px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle.active {
+            background: #4caf50;
+        }
+
+        .toggle.active::after {
+            transform: translateX(25px);
+        }
     </style>
 </head>
 <body>
@@ -128,6 +163,10 @@
             <a href="login.html">Login</a>
             <a href="game.html">game</a>
         </div>
+        <div class="toggle-container">
+            <label>Dark Mode</label>
+            <div class="toggle" id="toggleButton"></div>
+        </div>
     </nav>
 
     <button id="clickMeButton">Click Me</button>
@@ -138,31 +177,15 @@
         <div class="row">
             <div class="column">
                 <h2 style="color:dodgerblue;">Planning and Design</h2>
-                <p>Requirement Analysis: Define the website's purpose, target audience, and goals.
-                    Wireframing and Prototyping: Create visual layouts for the structure and functionality.
-                    UI/UX Design: Focus on user experience and aesthetic appeal using tools like Figma or Adobe XD.
-                    Content Strategy: Plan the website's text, images, and multimedia.
-                    Technology Stack Selection: Decide on front-end (HTML, CSS, JavaScript), back-end (Node.js, Django), and CMS (WordPress, Drupal).
-                </p>
+                <p>Requirement Analysis...</p>
             </div>
             <div class="column">
                 <h2 style="color:dodgerblue;"> Development and Integration</h2>
-                <p>Front-End Development: Use HTML, CSS, and JavaScript to develop responsive layouts.
-                    Back-End Development: Create server-side logic using languages like Python, PHP, or Java.
-                    Database Integration: Store and retrieve data using MySQL, MongoDB, etc.
-                    API Integration: Connect third-party services like payment gateways or social logins.
-                    Version Control: Use tools like Git to manage and track code changes.
-                    Testing: Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
+                <p>Front-End Development...</p>
             </div>
             <div class="column">
                 <h2 style="color:dodgerblue;">Deployment / Maintenance</h2>
-                <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server.
-                    Domain Configuration: Purchase and link a domain to your hosting.
-                    SEO Optimization: Optimize for search engines with meta tags, sitemaps, and structured data.
-                    Website Launch: Go live after final reviews and stakeholder approvals.
-                    Monitoring and Updates: Use analytics tools to track performance and address issues.
-                    Regular Maintenance: Update software, fix bugs, and refresh content regularly.
-                </p>
+                <p>Hosting Setup...</p>
             </div>
         </div>
     </div>
@@ -178,6 +201,20 @@
 
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("active");
+        });
+
+        // Dark Mode Toggle
+        const toggleButton = document.getElementById("toggleButton");
+
+        toggleButton.addEventListener("click", () => {
+            toggleButton.classList.toggle("active");
+            if (toggleButton.classList.contains("active")) {
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+            } else {
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "yellow";
+            }
         });
 
         // Confetti Animation
