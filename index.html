@@ -13,48 +13,53 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            background-color: black;
-            color: yellow;
+            background: linear-gradient(135deg, #1d1e26, #3e4c6d);
+            color: #e5e5e5;
+            transition: all 0.3s ease-in-out;
         }
 
         header {
-            background: #333;
-            color: rgb(255, 251, 0);
-            padding: 1rem 0;
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            color: white;
+            padding: 1.5rem 0;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #444;
-            padding: 0.5rem;
-            position: relative;
+            background: #333;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         nav a {
-            color: rgb(0, 238, 255);
+            color: #ffcc33;
+            font-weight: bold;
+            text-transform: uppercase;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            background: #555;
+            color: #ff6b6b;
         }
 
         .hamburger {
             display: none;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
-            color: white;
+            color: #fff;
         }
 
         .menu {
             display: flex;
-            gap: 10px;
+            gap: 1rem;
         }
 
         .menu.active {
@@ -63,10 +68,10 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: #444;
-            padding: 1rem;
+            background: rgba(51, 51, 51, 0.95);
+            padding: 1rem 2rem;
             border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -88,29 +93,53 @@
         .row {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .column {
             flex: 1;
             min-width: 300px;
-            background: #f4f4f4;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #222;
-            color: rgba(0, 255, 234, 0.829);
+            background: linear-gradient(135deg, #2a2a72, #009ffd);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .column:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
         footer {
             background: #333;
-            color: rgb(0, 255, 115);
+            color: #ffcc33;
             text-align: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             margin-top: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        /* Toggle Button */
+        /* Buttons and Toggles */
+        button {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+            transform: scale(1.05);
+        }
+
         .toggle-container {
             display: flex;
             align-items: center;
@@ -121,9 +150,10 @@
             position: relative;
             width: 50px;
             height: 25px;
-            background: #666;
+            background: #555;
             border-radius: 25px;
             cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
 
         .toggle::after {
@@ -136,6 +166,7 @@
             background: white;
             border-radius: 50%;
             transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .toggle.active {
@@ -145,6 +176,22 @@
         .toggle.active::after {
             transform: translateX(25px);
         }
+
+        /* Add animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header, .column, footer {
+            animation: fadeIn 0.6s ease;
+        }
     </style>
 </head>
 <body>
@@ -152,7 +199,6 @@
         <h1> TRIAL:1 </h1>
         <p>Adapts to different screen sizes!</p>
     </header>
-
     <nav>
         <span class="hamburger" id="hamburger">&#9776;</span>
         <div class="menu" id="menu">
@@ -161,121 +207,31 @@
             <a href="services.html">Services</a>
             <a href="contact.html">Contact</a>
             <a href="login.html">Login</a>
-            <a href="game.html">game</a>
+            <a href="game.html">Game</a>
         </div>
         <div class="toggle-container">
             <label>Dark Mode</label>
             <div class="toggle" id="toggleButton"></div>
         </div>
     </nav>
-
-    <button id="clickMeButton">Click Me</button>
-
-    <div id="confetti-container"></div>
-
     <div class="container">
         <div class="row">
             <div class="column">
-                <h2 style="color:dodgerblue;">Planning and Design</h2>
-                <p>Requirement Analysis: Define the website's purpose, target audience, and goals.
-                    Wireframing and Prototyping: Create visual layouts for the structure and functionality.
-                    UI/UX Design: Focus on user experience and aesthetic appeal using tools like Figma or Adobe XD.
-                    Content Strategy: Plan the website's text, images, and multimedia.
-                    Technology Stack Selection: Decide on front-end (HTML, CSS, JavaScript), back-end (Node.js, Django), and CMS (WordPress, Drupal).
-                </p>
+                <h2>Planning and Design</h2>
+                <p>Requirement Analysis: Define the website's purpose, target audience, and goals...</p>
             </div>
             <div class="column">
-                <h2 style="color:dodgerblue;">Development and Integration</h2>
-                <p>Front-End Development: Use HTML, CSS, and JavaScript to develop responsive layouts.
-                    Back-End Development: Create server-side logic using languages like Python, PHP, or Java.
-                    Database Integration: Store and retrieve data using MySQL, MongoDB, etc.
-                    API Integration: Connect third-party services like payment gateways or social logins.
-                    Version Control: Use tools like Git to manage and track code changes.
-                    Testing: Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
+                <h2>Development and Integration</h2>
+                <p>Front-End Development: Use HTML, CSS, and JavaScript to develop responsive layouts...</p>
             </div>
             <div class="column">
-                <h2 style="color:dodgerblue;">Deployment / Maintenance</h2>
-                <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server.
-                    Domain Configuration: Purchase and link a domain to your hosting.
-                    SEO Optimization: Optimize for search engines with meta tags, sitemaps, and structured data.
-                    Website Launch: Go live after final reviews and stakeholder approvals.
-                    Monitoring and Updates: Use analytics tools to track performance and address issues.
-                    Regular Maintenance: Update software, fix bugs, and refresh content regularly.
-                </p>
+                <h2>Deployment / Maintenance</h2>
+                <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server...</p>
             </div>
         </div>
     </div>
-
     <footer>
-        <p>&copy; this is only to learn</p>
+        <p>&copy; This is only to learn</p>
     </footer>
-
-    <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById("hamburger");
-        const menu = document.getElementById("menu");
-
-        hamburger.addEventListener("click", () => {
-            menu.classList.toggle("active");
-        });
-
-        // Dark Mode Toggle
-        const toggleButton = document.getElementById("toggleButton");
-
-        toggleButton.addEventListener("click", () => {
-            toggleButton.classList.toggle("active");
-            if (toggleButton.classList.contains("active")) {
-                document.body.style.backgroundColor = "white";
-                document.body.style.color = "black";
-            } else {
-                document.body.style.backgroundColor = "black";
-                document.body.style.color = "yellow";
-            }
-        });
-
-        // Confetti Animation
-        function createConfetti() {
-            const confettiContainer = document.getElementById('confetti-container');
-
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                const size = Math.random() * 8 + 4;
-                const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
-
-                confetti.style.position = 'absolute';
-                confetti.style.width = `${size}px`;
-                confetti.style.height = `${size}px`;
-                confetti.style.backgroundColor = color;
-                confetti.style.borderRadius = '50%';
-                confetti.style.top = `${Math.random() * window.innerHeight}px`;
-                confetti.style.left = `${Math.random() * window.innerWidth}px`;
-                confetti.style.opacity = Math.random();
-                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
-
-                confettiContainer.appendChild(confetti);
-
-                setTimeout(() => {
-                    confetti.remove();
-                }, 5000);
-            }
-        }
-
-        // Falling animation
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fall {
-                to {
-                    transform: translateY(100vh) rotate(360deg);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Button Click Event
-        document.getElementById('clickMeButton').addEventListener('click', () => {
-            createConfetti();
-            alert('Hello, welcome to my website! It is good that u are visiting my website');
-        });
-    </script>
 </body>
 </html>
