@@ -14,74 +14,64 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
             background: linear-gradient(135deg, #1d1e26, #3e4c6d);
             color: #e5e5e5;
-            transition: all 0.3s ease-in-out;
+            line-height: 1.6;
         }
 
         header {
             background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
             color: white;
-            padding: 1.5rem 0;
             text-align: center;
+            padding: 1.5rem 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         nav {
+            background: #333;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #333;
-            padding: 1rem 2rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        nav a {
-            color: #ffcc33;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ff6b6b;
+            position: relative;
         }
 
         .hamburger {
-            display: none;
             font-size: 28px;
             cursor: pointer;
-            color: #fff;
+            color: white;
         }
 
         .menu {
-            display: flex;
-            gap: 1rem;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #444;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         .menu.active {
             display: block;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: rgba(51, 51, 51, 0.95);
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        @media (max-width: 768px) {
-            .menu {
-                display: none;
-            }
+        .menu a {
+            display: block;
+            color: #ffcc33;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #555;
+            transition: color 0.3s ease;
+        }
 
-            .hamburger {
-                display: block;
-            }
+        .menu a:hover {
+            color: #ff6b6b;
         }
 
         .container {
@@ -121,68 +111,11 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
-
-        /* Buttons */
-        button {
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-            margin-top: 1rem;
-            display: block;
-        }
-
-        button:hover {
-            background: linear-gradient(135deg, #feb47b, #ff7e5f);
-            transform: scale(1.05);
-        }
-
-        .toggle-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .toggle {
-            position: relative;
-            width: 50px;
-            height: 25px;
-            background: #555;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .toggle::after {
-            content: "";
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 21px;
-            height: 21px;
-            background: white;
-            border-radius: 50%;
-            transition: transform 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .toggle.active {
-            background: #4caf50;
-        }
-
-        .toggle.active::after {
-            transform: translateX(25px);
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1> TRIAL:1 </h1>
+        <h1>TRIAL:1</h1>
         <p>Adapts to different screen sizes!</p>
     </header>
     <nav>
@@ -194,10 +127,6 @@
             <a href="contact.html">Contact</a>
             <a href="login.html">Login</a>
             <a href="game.html">Game</a>
-        </div>
-        <div class="toggle-container">
-            <label>Dark Mode</label>
-            <div class="toggle" id="toggleButton"></div>
         </div>
     </nav>
     <div class="container">
@@ -215,8 +144,6 @@
                 <p>Hosting Setup: Choose a hosting provider (e.g., AWS, Bluehost) and configure the server...</p>
             </div>
         </div>
-        <button id="clickMeButton">Click Me</button>
-        <div id="confetti-container"></div>
     </div>
     <footer>
         <p>&copy; This is only to learn</p>
@@ -229,25 +156,6 @@
 
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("active");
-        });
-
-        // Dark Mode Toggle
-        const toggleButton = document.getElementById("toggleButton");
-
-        toggleButton.addEventListener("click", () => {
-            toggleButton.classList.toggle("active");
-            if (toggleButton.classList.contains("active")) {
-                document.body.style.backgroundColor = "white";
-                document.body.style.color = "black";
-            } else {
-                document.body.style.backgroundColor = "black";
-                document.body.style.color = "yellow";
-            }
-        });
-
-        // Click Me Button
-        document.getElementById("clickMeButton").addEventListener("click", () => {
-            alert("Hello, welcome to my website!");
         });
     </script>
 </body>
