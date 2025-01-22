@@ -111,25 +111,6 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
-
-        #colorToggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            font-size: 16px;
-            color: white;
-            background: #333;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            transition: background 0.3s ease;
-        }
-
-        #colorToggle:hover {
-            background: #555;
-        }
     </style>
 </head>
 <body>
@@ -182,8 +163,6 @@
         <p>&copy; This is only to learn</p>
     </footer>
 
-    <button id="colorToggle">Toggle Colors</button>
-
     <script>
         // Hamburger Menu Toggle
         const hamburger = document.getElementById("hamburger");
@@ -191,17 +170,6 @@
 
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("active");
-        });
-
-        // Color Toggle Functionality
-        const colorToggle = document.getElementById("colorToggle");
-        let isDark = true;
-
-        colorToggle.addEventListener("click", () => {
-            document.body.style.background = isDark 
-                ? "linear-gradient(135deg, #ffefba, #ffffff)" 
-                : "linear-gradient(135deg, #1d1e26, #3e4c6d)";
-            isDark = !isDark;
         });
     </script>
 </body>
