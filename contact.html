@@ -5,40 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <style>
-        /* Reset Styles */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body Styles */
+        /* Background and Text Styles */
         body {
-            background: linear-gradient(135deg, #56ccf2, #2f80ed); /* Vibrant calm gradient */
-            color: #f5f5f5; /* Soft white text */
-            font-family: 'Poppins', sans-serif; /* Modern, clean font */
+            background: linear-gradient(135deg, #1d1e26, #3e4c6d); /* Consistent gradient */
+            color: #e5e5e5; /* Light text color */
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            animation: fadeIn 2s ease-in-out;
         }
 
-        /* Header Styles */
+        /* Header */
         header {
-            background: rgba(0, 0, 0, 0.6);
-            color: #ffcc33; /* Warm yellow for header */
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* Gradient header */
+            color: white;
             text-align: center;
             padding: 3rem 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: slideIn 1s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         header h1 {
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 3px;
+            font-size: 3rem;
+            letter-spacing: 2px;
         }
 
-        /* Main Section Styles */
+        /* Main Section */
         main {
             padding: 3rem 2rem;
             max-width: 900px;
@@ -47,7 +43,6 @@
             background: rgba(255, 255, 255, 0.85);
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            animation: slideUp 1s ease-in-out;
         }
 
         main p {
@@ -60,48 +55,26 @@
         }
 
         main a {
-            color: #ffcc33; /* Yellow links */
+            color: #ffcc33; /* Consistent link color */
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         main a:hover {
-            color: #ff6b6b; /* Hover color change */
+            color: #ff6b6b; /* Hover color */
         }
 
-        /* Footer Styles */
+        /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.6);
-            color: #ffcc33; /* Matching footer color */
+            background: #333;
+            color: #ffcc33;
             text-align: center;
             padding: 1.5rem 0;
             margin-top: 2rem;
             font-size: 1.2rem;
             letter-spacing: 1px;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateY(-50px); }
-            100% { transform: translateY(0); }
-        }
-
-        @keyframes slideUp {
-            0% { transform: translateY(50px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* Link Hover Effects */
-        a:hover {
-            text-decoration: underline;
-            color: #ff7e5f; /* Soft coral for hover effect */
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -117,7 +90,7 @@
     </main>
 
     <footer>
-        <p>&copy; this is only to learn</p>
+        <p>&copy; This is only to learn</p>
     </footer>
 
 </body>
