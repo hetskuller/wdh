@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background and Text Styles */
         body {
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1d1e26, #3e4c6d); /* Consistent gradient */
+            color: #e5e5e5; /* Light text color */
+            font-family: 'Poppins', sans-serif; /* Same font */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: lightgray;
             margin: 0;
         }
 
+        /* Form Styles */
         .login-form {
-            background: white;
+            background: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -26,6 +36,8 @@
 
         .login-form h1 {
             margin-bottom: 20px;
+            font-size: 2rem;
+            color: #ffcc33; /* Warm yellow for header */
         }
 
         .login-form input {
@@ -38,7 +50,7 @@
 
         .login-form button {
             padding: 10px 20px;
-            background: #28a745;
+            background: #ffcc33; /* Consistent yellow */
             color: white;
             border: none;
             border-radius: 4px;
@@ -47,7 +59,7 @@
         }
 
         .login-form button:hover {
-            background: #218838;
+            background: #ff6b6b; /* Hover effect matching previous pages */
         }
     </style>
 </head>
