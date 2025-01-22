@@ -5,32 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
     <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fonts and Background */
         body {
-            background-color: black;
-            color: rgba(0, 255, 234, 0.829);
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1d1e26, #3e4c6d); /* Consistent Gradient */
+            color: #e5e5e5; /* Light text color */
             line-height: 1.6;
         }
-        header, footer {
-            background: #333;
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* Gradient Header */
+            color: white;
             text-align: center;
-            padding: 1rem 0;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
-            text-align: center;
         }
+
         li {
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            color: #e5e5e5;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
+
+        li:hover {
+            transform: scale(1.05); /* Subtle zoom effect on hover */
+            color: #ffcc33; /* Hover color */
+        }
+
         a {
-            color: rgba(0, 255, 234, 0.829);
+            color: #ffcc33; /* Consistent link color */
             text-decoration: none;
             font-weight: bold;
         }
+
         a:hover {
             text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #333; /* Footer background */
+            color: #ffcc33; /* Footer text color */
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -48,7 +96,7 @@
         </ul>
     </main>
     <footer>
-        <p>&copy; this is only to learn </p>
+        <p>&copy; This is only to learn</p>
     </footer>
 </body>
 </html>
