@@ -12,72 +12,60 @@
             box-sizing: border-box;
         }
 
-        /* Background and Text Styles */
+        /* Fonts and Background */
         body {
-            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Vibrant Gradient Background */
-            color: #f0f0f0; /* Light color for text */
             font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
-            animation: fadeIn 2s ease-in-out;
+            background: linear-gradient(135deg, #1d1e26, #3e4c6d); /* From Index Page */
+            color: #e5e5e5; /* Light text color */
+            line-height: 1.6;
         }
 
-        /* Header Styles */
+        /* Header */
         header {
-            background: rgba(0, 0, 0, 0.5);
-            color: #ffcc33;
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* From Index Page */
+            color: white;
             text-align: center;
             padding: 2rem 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: slideIn 1s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         header h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
         }
 
-        /* Main Content Styles */
+        /* Main Content */
         main {
-            padding: 3rem 1.5rem;
+            padding: 2rem;
             max-width: 1200px;
             margin: auto;
             text-align: center;
         }
 
         main p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            color: #e5e5e5;
             line-height: 1.8;
-            color: #e0e0e0;
             max-width: 800px;
             margin: auto;
-            transition: color 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         main p:hover {
-            color: #ff7e5f; /* Hover effect on text */
+            transform: scale(1.05); /* Subtle zoom effect on hover */
+            color: #ffcc33; /* Hover color */
         }
 
-        /* Footer Styles */
+        /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.6);
-            color: #ffcc33;
+            background: #333; /* From Index Page */
+            color: #ffcc33; /* Footer Text Color */
             text-align: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             margin-top: 2rem;
-            font-size: 1.2rem;
+            font-weight: bold;
             letter-spacing: 1px;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateY(-50px); }
-            100% { transform: translateY(0); }
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -92,7 +80,7 @@
     </main>
 
     <footer>
-        <p>&copy; this is only to learn</p>
+        <p>&copy; This is only to learn</p>
     </footer>
 
 </body>
