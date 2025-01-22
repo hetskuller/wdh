@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Website</title>
+    <title>Responsive Website with Toggle Button</title>
     <style>
         /* General Reset */
         * {
@@ -111,6 +111,39 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
+
+        .toggle-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .toggle-btn {
+            background-color: #ffaf7b;
+            color: #1d1e26;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #d76d77;
+            color: white;
+        }
+
+        .toggle-content {
+            display: none;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1rem;
+            color: #ffcc33;
+        }
+
+        .toggle-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -134,29 +167,21 @@
             <div class="column">
                 <h2>Planning and Design</h2>
                 <p><strong>Requirement Analysis:</strong> Define the website's purpose, target audience, and goals.</p>
-                <p><strong>Wireframing and Prototyping:</strong> Create visual layouts for the structure and functionality.</p>
-                <p><strong>UI/UX Design:</strong> Focus on user experience and aesthetic appeal using tools like Figma or Adobe XD.</p>
-                <p><strong>Content Strategy:</strong> Plan the website's text, images, and multimedia.</p>
-                <p><strong>Technology Stack Selection:</strong> Decide on front-end (HTML, CSS, JavaScript), back-end (Node.js, Django), and CMS (WordPress, Drupal).</p>
             </div>
             <div class="column">
                 <h2>Development and Integration</h2>
                 <p><strong>Front-End Development:</strong> Use HTML, CSS, and JavaScript to develop responsive layouts.</p>
-                <p><strong>Back-End Development:</strong> Create server-side logic using languages like Python, PHP, or Java.</p>
-                <p><strong>Database Integration:</strong> Store and retrieve data using MySQL, MongoDB, etc.</p>
-                <p><strong>API Integration:</strong> Connect third-party services like payment gateways or social logins.</p>
-                <p><strong>Version Control:</strong> Use tools like Git to manage and track code changes.</p>
-                <p><strong>Testing:</strong> Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
             </div>
             <div class="column">
                 <h2>Deployment / Maintenance</h2>
                 <p><strong>Hosting Setup:</strong> Choose a hosting provider (e.g., AWS, Bluehost) and configure the server.</p>
-                <p><strong>Domain Configuration:</strong> Purchase and link a domain to your hosting.</p>
-                <p><strong>SEO Optimization:</strong> Optimize for search engines with meta tags, sitemaps, and structured data.</p>
-                <p><strong>Website Launch:</strong> Go live after final reviews and stakeholder approvals.</p>
-                <p><strong>Monitoring and Updates:</strong> Use analytics tools to track performance and address issues.</p>
-                <p><strong>Regular Maintenance:</strong> Update software, fix bugs, and refresh content regularly.</p>
             </div>
+        </div>
+    </div>
+    <div class="toggle-container">
+        <button class="toggle-btn" id="toggleButton">Show More Info</button>
+        <div class="toggle-content" id="toggleContent">
+            <p>Extra content is now visible. Click the button again to hide it!</p>
         </div>
     </div>
     <footer>
@@ -170,6 +195,18 @@
 
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("active");
+        });
+
+        // Toggle Button for Additional Content
+        const toggleButton = document.getElementById("toggleButton");
+        const toggleContent = document.getElementById("toggleContent");
+
+        toggleButton.addEventListener("click", () => {
+            toggleContent.classList.toggle("active");
+            toggleButton.textContent = 
+                toggleContent.classList.contains("active") 
+                ? "Hide Info" 
+                : "Show More Info";
         });
     </script>
 </body>
