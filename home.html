@@ -3,28 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+    <title>Internship Platform</title>
     <style>
+        /* General Styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 2000px; /* Add scrollable content */
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
         }
 
         header {
+            background: #007bff;
+            color: #fff;
+            padding: 1rem 0;
             text-align: center;
-            padding: 2rem;
-            background-color: #333;
-            color: white;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            margin-top: 20px;
+        }
+
+        /* Back to Top Button Styling */
         #backToTop {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #ffcc33;
-            color: #333;
+            background: #007bff; /* Primary color */
+            color: #fff;
             border: none;
             border-radius: 50%;
             width: 50px;
@@ -36,25 +62,52 @@
             display: none;
             justify-content: center;
             align-items: center;
+            transition: all 0.3s ease-in-out;
         }
 
         #backToTop:hover {
-            background: #ff6b6b;
-            color: white;
+            background: #0056b3; /* Hover color */
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Scroll Down to See the Button</h1>
+        <h1>Welcome to the Internship Platform</h1>
+        <p>Connecting Students with the Right Opportunities</p>
     </header>
+
+    <div class="container">
+        <h2>About Us</h2>
+        <p>
+            This platform is designed to bridge the gap between students seeking internships and companies searching for interns.
+            Whether you're in IT, B-Pharm, M-Pharm, Computer Engineering, or Civil Engineering, we have opportunities for you.
+        </p>
+
+        <h2>How It Works</h2>
+        <ul>
+            <li>Students register and fill in their details like skills, CGPA, and preferences.</li>
+            <li>Companies post their requirements for internships.</li>
+            <li>Our platform matches students and companies based on their criteria.</li>
+        </ul>
+
+        <h2>Contact Us</h2>
+        <p>Email: support@internshipplatform.com</p>
+        <p>Phone: +1 234 567 890</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Internship Platform. All Rights Reserved.</p>
+    </footer>
 
     <!-- Back to Top Button -->
     <button id="backToTop" title="Back to Top">&#8593;</button>
 
     <script>
+        // Back to Top Button Functionality
         const backToTop = document.getElementById("backToTop");
 
+        // Show/Hide button based on scroll
         window.addEventListener("scroll", () => {
             if (window.scrollY > 100) {
                 backToTop.style.display = "flex";
@@ -63,9 +116,11 @@
             }
         });
 
+        // Smooth Scroll to Top
         backToTop.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     </script>
+
 </body>
 </html>
