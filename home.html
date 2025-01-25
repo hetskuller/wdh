@@ -3,61 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Test Page</title>
     <style>
-        /* General Reset */
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1d1e26, #3e4c6d);
-            color: #e5e5e5;
-            line-height: 1.6;
+            height: 2000px; /* Add scrollable content */
         }
 
         header {
-            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
-            color: white;
             text-align: center;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        main {
             padding: 2rem;
-            max-width: 1200px;
-            margin: auto;
-            text-align: center;
+            background-color: #333;
+            color: white;
         }
 
-        main p {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            line-height: 1.8;
-            color: rgba(0, 255, 234, 0.75);
-        }
-
-        footer {
-            background: #333;
-            color: #ffcc33;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        /* Back to Top Button */
         #backToTop {
             position: fixed;
             bottom: 30px;
@@ -85,14 +46,8 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to the Home Page</h1>
+        <h1>Scroll Down to See the Button</h1>
     </header>
-    <main>
-        <p>This is the home page of our responsive website. Explore the other sections to learn more!</p>
-    </main>
-    <footer>
-        <p>&copy; this is only to learn </p>
-    </footer>
 
     <!-- Back to Top Button -->
     <button id="backToTop" title="Back to Top">&#8593;</button>
