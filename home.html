@@ -11,22 +11,22 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background: #f4f4f4;
+            background: #f4f4f4; /* Light gray */
             color: #333;
         }
 
         header {
-            background: #007bff;
-            color: #fff;
+            background: #007bff; /* Blue */
+            color: white;
             padding: 1rem 0;
             text-align: center;
         }
 
         .container {
-            max-width: 1200px;
-            margin: auto;
+            max-width: 1100px;
+            margin: 20px auto;
             padding: 20px;
-            background: #fff;
+            background: white;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -40,10 +40,10 @@
         }
 
         footer {
-            text-align: center;
             background: #333;
-            color: #fff;
-            padding: 1rem 0;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
             margin-top: 20px;
         }
 
@@ -52,7 +52,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #007bff; /* Primary color */
+            background: #007bff;
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -69,59 +69,59 @@
         }
 
         #backToTop:hover {
-            background: #0056b3; /* Hover color */
+            background: #0056b3;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Welcome to Our Website</h1>
-        <p>Discover something new every day</p>
+        <h1>Welcome to Our Platform</h1>
+        <p>Your gateway to innovation and collaboration</p>
     </header>
 
     <div class="container">
         <h2>About Us</h2>
         <p>
-            Welcome to our platform, where we aim to provide valuable insights and services to our users. Explore
-            our features and enjoy a seamless experience.
+            We are dedicated to connecting people, sharing knowledge, and providing innovative solutions. 
+            Our platform serves as a hub for collaboration and growth.
         </p>
 
-        <h2>Our Mission</h2>
+        <h2>Services</h2>
         <p>
-            To deliver quality services and make life easier for everyone.
+            Explore our wide range of services designed to cater to your needs. 
+            We focus on delivering quality and ensuring customer satisfaction.
         </p>
 
         <h2>Contact Us</h2>
-        <p>Email: contact@ourwebsite.com</p>
-        <p>Phone: +1 234 567 890</p>
+        <p>Email: support@platform.com</p>
+        <p>Phone: +1 800 123 4567</p>
     </div>
 
     <footer>
-        <p>&copy; 2025 Our Website. All Rights Reserved.</p>
+        <p>&copy; 2025 Our Platform. All Rights Reserved.</p>
     </footer>
 
     <!-- Back to Top Button -->
     <button id="backToTop" title="Back to Top">&#8593;</button>
 
     <script>
-        // Back to Top Button Functionality
+        // Back to Top Button Script
         const backToTop = document.getElementById("backToTop");
 
-        // Show/Hide button based on scroll
+        // Show/Hide button
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 200) {
                 backToTop.style.display = "flex";
             } else {
                 backToTop.style.display = "none";
             }
         });
 
-        // Smooth Scroll to Top
+        // Scroll to top
         backToTop.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     </script>
-
 </body>
 </html>
