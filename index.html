@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Responsive website that adapts to different screen sizes and showcases various web development concepts.">
-    <meta property="og:title" content="Responsive Website">
-    <meta property="og:image" content="image.jpg">
     <title>Responsive Website</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         /* General Reset */
         * {
@@ -18,55 +14,35 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: #e5e5e5;
+            background: #ffffff; /* White background */
+            color: #000000; /* Black text */
             line-height: 1.6;
-            animation: gradientAnimation 30s ease infinite;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
         }
 
-        /* Gradient Animation */
-        @keyframes gradientAnimation {
-            0% {
-                background: linear-gradient(135deg, #2c3e50, #34495e);
-            }
-            25% {
-                background: linear-gradient(135deg, #16a085, #1abc9c);
-            }
-            50% {
-                background: linear-gradient(135deg, #2980b9, #3498db);
-            }
-            75% {
-                background: linear-gradient(135deg, #2c3e50, #34495e);
-            }
-            100% {
-                background: linear-gradient(135deg, #2c3e50, #34495e);
-            }
-        }
-
+        /* Header */
         header {
-            background: linear-gradient(135deg, #16a085, #1abc9c, #3498db);
-            color: white;
+            background: #f0f0f0; /* Light Gray */
+            color: #000000; /* Black text */
             text-align: center;
             padding: 1.5rem 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
+        /* Navigation */
         nav {
-            background: #333;
+            background: #d9d9d9; /* Silver */
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: relative;
         }
 
         .hamburger {
             font-size: 28px;
             cursor: pointer;
-            color: white;
+            color: #000000; /* Black */
         }
 
         .menu {
@@ -75,7 +51,7 @@
             top: 100%;
             left: 0;
             width: 100%;
-            background: #444;
+            background: #f0f0f0; /* Light Gray */
             padding: 1rem;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -87,7 +63,7 @@
 
         .menu a {
             display: block;
-            color: #ffcc33;
+            color: #ff6347; /* Tomato */
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
@@ -97,15 +73,17 @@
         }
 
         .menu a:hover {
-            color: #ff6b6b;
+            color: #f4c542; /* Vibrant Yellow */
         }
 
+        /* Container */
         .container {
             padding: 2rem;
             max-width: 1200px;
             margin: auto;
         }
 
+        /* Row and Column Layout */
         .row {
             display: flex;
             flex-wrap: wrap;
@@ -115,8 +93,8 @@
         .column {
             flex: 1;
             min-width: 300px;
-            background: linear-gradient(135deg, #2980b9, #3498db);
-            color: white;
+            background: #f0f0f0; /* Light Gray */
+            color: #000000; /* Black text */
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
@@ -124,58 +102,19 @@
         }
 
         .column:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
+        /* Footer */
         footer {
-            background: #333;
-            color: #ffcc33;
+            background: #d9d9d9; /* Silver */
+            color: #ff6347; /* Tomato */
             text-align: center;
             padding: 1.5rem 0;
             margin-top: 2rem;
             font-weight: bold;
             letter-spacing: 1px;
-        }
-
-        /* Back to top button */
-        #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            padding: 15px;
-            cursor: pointer;
-            display: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        #back-to-top:hover {
-            background-color: #ffcc33;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .row {
-                flex-direction: column;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .menu a {
-                padding: 1rem;
-            }
         }
     </style>
 </head>
@@ -184,7 +123,6 @@
         <h1>TRIAL:1</h1>
         <p>Adapts to different screen sizes!</p>
     </header>
-
     <nav>
         <span class="hamburger" id="hamburger">&#9776;</span>
         <div class="menu" id="menu">
@@ -196,7 +134,6 @@
             <a href="game.html">Game</a>
         </div>
     </nav>
-
     <div class="container">
         <div class="row">
             <div class="column">
@@ -214,8 +151,7 @@
                 <p><strong>Database Integration:</strong> Store and retrieve data using MySQL, MongoDB, etc.</p>
                 <p><strong>API Integration:</strong> Connect third-party services like payment gateways or social logins.</p>
                 <p><strong>Version Control:</strong> Use tools like Git to manage and track code changes.</p>
-                <strong>Testing:</strong>
-                <p>Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
+                <p><strong>Testing:</strong> Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
             </div>
             <div class="column">
                 <h2>Deployment / Maintenance</h2>
@@ -228,12 +164,9 @@
             </div>
         </div>
     </div>
-
     <footer>
         <p>&copy; This is only to learn</p>
     </footer>
-
-    <button id="back-to-top" onclick="scrollToTop()">↑</button>
 
     <script>
         // Hamburger Menu Toggle
@@ -243,20 +176,6 @@
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("active");
         });
-
-        // Back to Top Button Visibility
-        window.onscroll = function () {
-            const backToTopButton = document.getElementById("back-to-top");
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
     </script>
 </body>
 </html>
