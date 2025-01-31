@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive website that adapts to different screen sizes and showcases various web development concepts.">
+    <meta property="og:title" content="Responsive Website">
+    <meta property="og:image" content="image.jpg">
     <title>Responsive Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         /* General Reset */
         * {
@@ -34,7 +38,9 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .hamburger {
@@ -98,8 +104,8 @@
         }
 
         .column:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
         }
 
         footer {
@@ -111,6 +117,46 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            padding: 15px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #back-to-top:hover {
+            background-color: #ffcc33;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .menu a {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -118,6 +164,7 @@
         <h1>TRIAL:1</h1>
         <p>Adapts to different screen sizes!</p>
     </header>
+
     <nav>
         <span class="hamburger" id="hamburger">&#9776;</span>
         <div class="menu" id="menu">
@@ -129,6 +176,7 @@
             <a href="game.html">Game</a>
         </div>
     </nav>
+
     <div class="container">
         <div class="row">
             <div class="column">
@@ -159,9 +207,12 @@
             </div>
         </div>
     </div>
+
     <footer>
         <p>&copy; This is only to learn</p>
     </footer>
+
+    <button id="back-to-top" onclick="scrollToTop()">↑</button>
 
     <script>
         // Hamburger Menu Toggle
@@ -171,6 +222,20 @@
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("active");
         });
+
+        // Back to Top Button Visibility
+        window.onscroll = function () {
+            const backToTopButton = document.getElementById("back-to-top");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
