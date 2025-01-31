@@ -4,112 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #1d1e26, #3e4c6d);
             color: #e5e5e5;
             line-height: 1.6;
         }
-
         header {
             background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
             color: white;
             text-align: center;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            font-size: 1.2rem;
         }
-
         nav {
-            background: #333;
+            background: #222;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            position: relative;
         }
-
-        .hamburger {
-            font-size: 28px;
-            cursor: pointer;
-            color: white;
-        }
-
         .menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: #444;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            gap: 1.5rem;
         }
-
-        .menu.active {
-            display: block;
-        }
-
         .menu a {
-            display: block;
-            color: #ffcc33;
-            font-weight: bold;
-            text-transform: uppercase;
+            color: white;
             text-decoration: none;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #555;
-            transition: color 0.3s ease;
+            font-weight: bold;
+            transition: color 0.3s;
         }
-
         .menu a:hover {
-            color: #ff6b6b;
+            color: #ffcc33;
         }
-
         .container {
             padding: 2rem;
             max-width: 1200px;
             margin: auto;
         }
-
         .row {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-
         .column {
-            flex: 1;
-            min-width: 300px;
             background: linear-gradient(135deg, #2a2a72, #009ffd);
             color: white;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
         .column:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-
         footer {
-            background: #333;
+            background: #222;
             color: #ffcc33;
             text-align: center;
             padding: 1.5rem 0;
             margin-top: 2rem;
             font-weight: bold;
-            letter-spacing: 1px;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            .menu {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -119,8 +92,7 @@
         <p>Adapts to different screen sizes!</p>
     </header>
     <nav>
-        <span class="hamburger" id="hamburger">&#9776;</span>
-        <div class="menu" id="menu">
+        <div class="menu">
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -133,44 +105,20 @@
         <div class="row">
             <div class="column">
                 <h2>Planning and Design</h2>
-                <p><strong>Requirement Analysis:</strong> Define the website's purpose, target audience, and goals.</p>
-                <p><strong>Wireframing and Prototyping:</strong> Create visual layouts for the structure and functionality.</p>
-                <p><strong>UI/UX Design:</strong> Focus on user experience and aesthetic appeal using tools like Figma or Adobe XD.</p>
-                <p><strong>Content Strategy:</strong> Plan the website's text, images, and multimedia.</p>
-                <p><strong>Technology Stack Selection:</strong> Decide on front-end (HTML, CSS, JavaScript), back-end (Node.js, Django), and CMS (WordPress, Drupal).</p>
+                <p>Define the website's purpose, create wireframes, and select the right technology stack.</p>
             </div>
             <div class="column">
                 <h2>Development and Integration</h2>
-                <p><strong>Front-End Development:</strong> Use HTML, CSS, and JavaScript to develop responsive layouts.</p>
-                <p><strong>Back-End Development:</strong> Create server-side logic using languages like Python, PHP, or Java.</p>
-                <p><strong>Database Integration:</strong> Store and retrieve data using MySQL, MongoDB, etc.</p>
-                <p><strong>API Integration:</strong> Connect third-party services like payment gateways or social logins.</p>
-                <p><strong>Version Control:</strong> Use tools like Git to manage and track code changes.</p>
-                <p><strong>Testing:</strong> Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
+                <p>Build a responsive front-end, develop back-end logic, and integrate databases & APIs.</p>
             </div>
             <div class="column">
-                <h2>Deployment / Maintenance</h2>
-                <p><strong>Hosting Setup:</strong> Choose a hosting provider (e.g., AWS, Bluehost) and configure the server.</p>
-                <p><strong>Domain Configuration:</strong> Purchase and link a domain to your hosting.</p>
-                <p><strong>SEO Optimization:</strong> Optimize for search engines with meta tags, sitemaps, and structured data.</p>
-                <p><strong>Website Launch:</strong> Go live after final reviews and stakeholder approvals.</p>
-                <p><strong>Monitoring and Updates:</strong> Use analytics tools to track performance and address issues.</p>
-                <p><strong>Regular Maintenance:</strong> Update software, fix bugs, and refresh content regularly.</p>
+                <h2>Deployment & Maintenance</h2>
+                <p>Host the site, optimize SEO, and perform regular updates & security checks.</p>
             </div>
         </div>
     </div>
     <footer>
         <p>&copy; This is only to learn</p>
     </footer>
-
-    <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById("hamburger");
-        const menu = document.getElementById("menu");
-
-        hamburger.addEventListener("click", () => {
-            menu.classList.toggle("active");
-        });
-    </script>
 </body>
 </html>
