@@ -5,50 +5,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
     <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fonts and Background */
         body {
-            background-color: black;
-            color: rgba(0, 255, 234, 0.829);
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            color: #e5e5e5;
             line-height: 1.6;
+            animation: gradientAnimation 30s ease infinite;
+            background: linear-gradient(135deg, #1d1e26, #3e4c6d);
         }
-        header, footer {
-            background: #333;
+
+        /* Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background: linear-gradient(135deg, #1d1e26, #3e4c6d); }
+            25% { background: linear-gradient(135deg, #2a2a72, #009ffd); }
+            50% { background: linear-gradient(135deg, #ff6b6b, #d76d77); }
+            75% { background: linear-gradient(135deg, #3a1c71, #ffaf7b); }
+            100% { background: linear-gradient(135deg, #1d1e26, #3e4c6d); }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            color: white;
             text-align: center;
-            padding: 1rem 0;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
+
+        /* Pulse Animation for "Our Services" */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Navigation */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .hamburger {
+            font-size: 28px;
+            cursor: pointer;
+            color: #ffcc33;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
+        .menu {
+            display: none;
+            background: rgba(51, 51, 51, 0.9); /* Dark Transparent */
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            left: 20px;
+            top: 120px;
+            width: 200px;
+            animation: slideDown 0.3s ease-in-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            color: #ffcc33;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #555;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
-            text-align: center;
         }
+
         li {
+            font-size: 1.3rem;
             margin: 1rem 0;
-        }
-        a {
-            color: rgba(0, 255, 234, 0.829);
-            text-decoration: none;
+            color: #ffcc33;
             font-weight: bold;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
-        a:hover {
-            text-decoration: underline;
+
+        li:hover {
+            transform: scale(1.1);
+            color: #ff6b6b;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #ffcc33;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu {
+                left: 10px;
+                width: 180px;
+            }
+
+            .hamburger {
+                margin-left: 10px;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Our Services</h1>
     </header>
+
+    <!-- Hamburger Menu Below Header (On Left Side) -->
+    <div class="nav-container">
+        <span class="hamburger" id="hamburger">&#9776;</span>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+            <a href="game.html">Game</a>
+        </div>
+    </div>
+
     <main>
         <ul>
-            <li>Custom Website Design</a></li>
-            <li>Responsive Web Development</a></li>
+            <li>Custom Website Design</li>
+            <li>Responsive Web Development</li>
             <li>SEO Optimization</li>
             <li>Content Management</li>
             <li>24/7 Support</li>
         </ul>
     </main>
+
     <footer>
-        <p>&copy; this is only to learn </p>
+        <p>&copy; This is only to learn</p>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script>
+
 </body>
 </html>
