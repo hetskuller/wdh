@@ -22,115 +22,164 @@
             line-height: 1.6;
             animation: gradientAnimation 30s ease infinite;
             background: linear-gradient(135deg, #1d1e26, #3e4c6d);
-            overflow: hidden; /* Prevents scroll during animation */
         }
 
         /* Gradient Animation */
         @keyframes gradientAnimation {
-            0% { background: linear-gradient(135deg, #1d1e26, #3e4c6d); }
-            25% { background: linear-gradient(135deg, #2a2a72, #009ffd); }
-            50% { background: linear-gradient(135deg, #ff6b6b, #d76d77); }
-            75% { background: linear-gradient(135deg, #3a1c71, #ffaf7b); }
-            100% { background: linear-gradient(135deg, #1d1e26, #3e4c6d); }
+            0% {
+                background: linear-gradient(135deg, #1d1e26, #3e4c6d);
+            }
+            25% {
+                background: linear-gradient(135deg, #2a2a72, #009ffd);
+            }
+            50% {
+                background: linear-gradient(135deg, #ff6b6b, #d76d77);
+            }
+            75% {
+                background: linear-gradient(135deg, #3a1c71, #ffaf7b);
+            }
+            100% {
+                background: linear-gradient(135deg, #1d1e26, #3e4c6d);
+            }
         }
 
-        /* Man Animation */
-        .man-container {
-            position: fixed;
-            bottom: 10%;
-            left: -150px; /* Start off-screen */
-            width: 120px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: manEnter 2s ease-out, manExit 2s ease-in 5s forwards;
+        header {
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
-        .man {
-            width: 100px;
-            height: 150px;
-            background: #ffcc33; /* Man's body color */
-            border-radius: 50%;
-            position: relative;
+        nav {
+            background: #333;
+            padding: 1rem 2rem;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .hamburger {
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #444;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            color: #ffcc33;
             font-weight: bold;
-            color: #000;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #555;
+            transition: color 0.3s ease;
         }
 
-        /* Face */
-        .man::before {
-            content: "";
-            width: 50px;
-            height: 50px;
-            background: #ffcc33;
-            border-radius: 50%;
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.2);
+        .menu a:hover {
+            color: #ff6b6b;
         }
 
-        /* Speech Bubble */
-        .speech {
-            position: absolute;
-            top: -60px;
-            left: 50px;
-            background: white;
-            color: black;
-            padding: 8px 12px;
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, #2a2a72, #009ffd);
+            color: white;
+            padding: 1.5rem;
             border-radius: 10px;
-            font-size: 16px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .column:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background: #333;
+            color: #ffcc33;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
             font-weight: bold;
-            opacity: 0;
-            animation: speechFade 3s ease-in-out 2s forwards;
+            letter-spacing: 1px;
         }
 
-        .speech::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 10px;
-            border-width: 10px;
-            border-style: solid;
-            border-color: white transparent transparent transparent;
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            padding: 15px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
-        /* Man enters */
-        @keyframes manEnter {
-            0% { left: -150px; }
-            100% { left: 20%; }
+        #back-to-top:hover {
+            background-color: #ffcc33;
         }
 
-        /* Man exits */
-        @keyframes manExit {
-            0% { left: 20%; }
-            100% { left: 120%; }
-        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
 
-        /* Speech bubble fades in */
-        @keyframes speechFade {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
-        }
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
+            .hamburger {
+                display: block;
+            }
+
+            .menu a {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <div class="man-container">
-        <div class="man">
-            👋
-            <div class="speech">Hi!</div>
-        </div>
-    </div>
-
     <header>
         <h1>TRIAL:1</h1>
         <p>Adapts to different screen sizes!</p>
@@ -152,15 +201,30 @@
         <div class="row">
             <div class="column">
                 <h2>Planning and Design</h2>
-                <p>Requirement Analysis: Define the website's purpose, target audience, and goals.</p>
+                <p><strong>Requirement Analysis:</strong> Define the website's purpose, target audience, and goals.</p>
+                <p><strong>Wireframing and Prototyping:</strong> Create visual layouts for the structure and functionality.</p>
+                <p><strong>UI/UX Design:</strong> Focus on user experience and aesthetic appeal using tools like Figma or Adobe XD.</p>
+                <p><strong>Content Strategy:</strong> Plan the website's text, images, and multimedia.</p>
+                <p><strong>Technology Stack Selection:</strong> Decide on front-end (HTML, CSS, JavaScript), back-end (Node.js, Django), and CMS (WordPress, Drupal).</p>
             </div>
             <div class="column">
                 <h2>Development and Integration</h2>
-                <p>Front-End Development: Use HTML, CSS, and JavaScript to develop responsive layouts.</p>
+                <p><strong>Front-End Development:</strong> Use HTML, CSS, and JavaScript to develop responsive layouts.</p>
+                <p><strong>Back-End Development:</strong> Create server-side logic using languages like Python, PHP, or Java.</p>
+                <p><strong>Database Integration:</strong> Store and retrieve data using MySQL, MongoDB, etc.</p>
+                <p><strong>API Integration:</strong> Connect third-party services like payment gateways or social logins.</p>
+                <p><strong>Version Control:</strong> Use tools like Git to manage and track code changes.</p>
+                <strong>Testing:</strong>
+                <p>Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
             </div>
             <div class="column">
                 <h2>Deployment / Maintenance</h2>
-                <p>Hosting Setup: Choose a hosting provider and configure the server.</p>
+                <p><strong>Hosting Setup:</strong> Choose a hosting provider (e.g., AWS, Bluehost) and configure the server.</p>
+                <p><strong>Domain Configuration:</strong> Purchase and link a domain to your hosting.</p>
+                <p><strong>SEO Optimization:</strong> Optimize for search engines with meta tags, sitemaps, and structured data.</p>
+                <p><strong>Website Launch:</strong> Go live after final reviews and stakeholder approvals.</p>
+                <p><strong>Monitoring and Updates:</strong> Use analytics tools to track performance and address issues.</p>
+                <p><strong>Regular Maintenance:</strong> Update software, fix bugs, and refresh content regularly.</p>
             </div>
         </div>
     </div>
@@ -194,6 +258,5 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-
 </body>
 </html>
