@@ -22,7 +22,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* Matching Index Page */
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
             color: white;
             text-align: center;
             padding: 2rem 0;
@@ -35,22 +35,18 @@
         }
 
         /* Navigation */
-        nav {
-            background: transparent;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: flex-start; /* Align hamburger to the left */
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .nav-container {
+            text-align: center;
+            padding: 1rem 0;
         }
 
         .hamburger {
             font-size: 28px;
             cursor: pointer;
-            color: #ffcc33; /* Matching Theme */
+            color: #ffcc33;
             transition: transform 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
         }
 
         .hamburger:hover {
@@ -59,14 +55,13 @@
 
         .menu {
             display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
             background: rgba(51, 51, 51, 0.9); /* Dark Transparent */
             padding: 1rem;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 250px;
+            margin: 10px auto;
             animation: slideDown 0.3s ease-in-out;
         }
 
@@ -88,7 +83,6 @@
             padding: 0.5rem 0;
             border-bottom: 1px solid #555;
             transition: color 0.3s ease;
-            text-align: center;
         }
 
         .menu a:hover {
@@ -113,13 +107,13 @@
         }
 
         main p:hover {
-            transform: scale(1.05); /* Subtle zoom effect on hover */
-            color: #ffcc33; /* Hover color */
+            transform: scale(1.05);
+            color: #ffcc33;
         }
 
         /* Footer */
         footer {
-            background: #333; /* Matching Index Page */
+            background: #333;
             color: #ffcc33;
             text-align: center;
             padding: 1.5rem 0;
@@ -131,25 +125,24 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: row;
-                align-items: center;
+            .menu {
+                width: 80%;
             }
 
             .hamburger {
-                margin-right: auto; /* Keeps it on the left */
-            }
-
-            .menu a {
-                padding: 1rem;
+                margin-top: 5px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hamburger Menu -->
-    <nav>
+    <header>
+        <h1>About Pagani</h1>
+    </header>
+
+    <!-- Hamburger Menu Below Header -->
+    <div class="nav-container">
         <span class="hamburger" id="hamburger">&#9776;</span>
         <div class="menu" id="menu">
             <a href="index.html">Home</a>
@@ -159,11 +152,7 @@
             <a href="login.html">Login</a>
             <a href="game.html">Game</a>
         </div>
-    </nav>
-
-    <header>
-        <h1>About Pagani</h1>
-    </header>
+    </div>
 
     <main>
         <p>Pagani is an Italian manufacturer of luxury sports cars and carbon fiber components. Known for its incredible design and performance, Pagani creates masterpieces such as the Zonda and Huayra models.</p>
