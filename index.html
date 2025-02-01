@@ -22,6 +22,7 @@
             line-height: 1.6;
             animation: gradientAnimation 30s ease infinite;
             background: linear-gradient(135deg, #1d1e26, #3e4c6d);
+            overflow: hidden; /* Prevents scroll during animation */
         }
 
         /* Gradient Animation */
@@ -33,153 +34,103 @@
             100% { background: linear-gradient(135deg, #1d1e26, #3e4c6d); }
         }
 
-        header {
-            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        nav {
-            background: transparent;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: flex-start; /* Align hamburger to the left */
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .hamburger {
-            font-size: 28px;
-            cursor: pointer;
-            color: #ffcc33; /* Matching color palette */
-            transition: transform 0.3s ease;
-        }
-
-        .hamburger:hover {
-            transform: scale(1.1);
-        }
-
-        .menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(51, 51, 51, 0.9); /* Transparent Dark Gray */
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.3s ease-in-out;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .menu.active {
-            display: block;
-        }
-
-        .menu a {
-            display: block;
-            color: #ffcc33;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #555;
-            transition: color 0.3s ease;
-        }
-
-        .menu a:hover {
-            color: #ff6b6b;
-        }
-
-        .container {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        .column {
-            flex: 1;
-            min-width: 300px;
-            background: linear-gradient(135deg, #2a2a72, #009ffd);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .column:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        footer {
-            background: #333;
-            color: #ffcc33;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        /* Back to top button */
-        #back-to-top {
+        /* Man Animation */
+        .man-container {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
+            bottom: 10%;
+            left: -150px; /* Start off-screen */
+            width: 120px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: manEnter 2s ease-out, manExit 2s ease-in 5s forwards;
+        }
+
+        .man {
+            width: 100px;
+            height: 150px;
+            background: #ffcc33; /* Man's body color */
             border-radius: 50%;
-            font-size: 24px;
-            padding: 15px;
-            cursor: pointer;
-            display: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
         }
 
-        #back-to-top:hover {
-            background-color: #ffcc33;
+        /* Face */
+        .man::before {
+            content: "";
+            width: 50px;
+            height: 50px;
+            background: #ffcc33;
+            border-radius: 50%;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.2);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .row {
-                flex-direction: column;
-            }
-
-            nav {
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .hamburger {
-                margin-right: auto; /* Ensures it stays on the left */
-            }
-
-            .menu a {
-                padding: 1rem;
-            }
+        /* Speech Bubble */
+        .speech {
+            position: absolute;
+            top: -60px;
+            left: 50px;
+            background: white;
+            color: black;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            opacity: 0;
+            animation: speechFade 3s ease-in-out 2s forwards;
         }
+
+        .speech::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+
+        /* Man enters */
+        @keyframes manEnter {
+            0% { left: -150px; }
+            100% { left: 20%; }
+        }
+
+        /* Man exits */
+        @keyframes manExit {
+            0% { left: 20%; }
+            100% { left: 120%; }
+        }
+
+        /* Speech bubble fades in */
+        @keyframes speechFade {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
     </style>
 </head>
 <body>
+
+    <div class="man-container">
+        <div class="man">
+            👋
+            <div class="speech">Hi!</div>
+        </div>
+    </div>
+
     <header>
         <h1>TRIAL:1</h1>
         <p>Adapts to different screen sizes!</p>
@@ -218,13 +169,31 @@
         <p>&copy; This is only to learn</p>
     </footer>
 
+    <button id="back-to-top" onclick="scrollToTop()">↑</button>
+
     <script>
+        // Hamburger Menu Toggle
         const hamburger = document.getElementById("hamburger");
         const menu = document.getElementById("menu");
 
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("active");
         });
+
+        // Back to Top Button Visibility
+        window.onscroll = function () {
+            const backToTopButton = document.getElementById("back-to-top");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
+
 </body>
 </html>
