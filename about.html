@@ -15,14 +15,14 @@
         /* Fonts and Background */
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1d1e26, #3e4c6d); /* From Index Page */
-            color: #e5e5e5; /* Light text color */
+            background: linear-gradient(135deg, #1d1e26, #3e4c6d); /* Matching Index Page */
+            color: #e5e5e5;
             line-height: 1.6;
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* From Index Page */
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* Matching Index Page */
             color: white;
             text-align: center;
             padding: 2rem 0;
@@ -32,6 +32,67 @@
         header h1 {
             font-size: 2.5rem;
             letter-spacing: 1.5px;
+        }
+
+        /* Navigation */
+        nav {
+            background: transparent;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-start; /* Align hamburger to the left */
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .hamburger {
+            font-size: 28px;
+            cursor: pointer;
+            color: #ffcc33; /* Matching Theme */
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(51, 51, 51, 0.9); /* Dark Transparent */
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.3s ease-in-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            color: #ffcc33;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #555;
+            transition: color 0.3s ease;
+            text-align: center;
+        }
+
+        .menu a:hover {
+            color: #ff6b6b;
         }
 
         /* Main Content */
@@ -58,8 +119,8 @@
 
         /* Footer */
         footer {
-            background: #333; /* From Index Page */
-            color: #ffcc33; /* Footer Text Color */
+            background: #333; /* Matching Index Page */
+            color: #ffcc33;
             text-align: center;
             padding: 1.5rem 0;
             margin-top: 2rem;
@@ -67,9 +128,38 @@
             letter-spacing: 1px;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .hamburger {
+                margin-right: auto; /* Keeps it on the left */
+            }
+
+            .menu a {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Hamburger Menu -->
+    <nav>
+        <span class="hamburger" id="hamburger">&#9776;</span>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+            <a href="game.html">Game</a>
+        </div>
+    </nav>
 
     <header>
         <h1>About Pagani</h1>
@@ -82,6 +172,16 @@
     <footer>
         <p>&copy; This is only to learn</p>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script>
 
 </body>
 </html>
