@@ -36,8 +36,9 @@
 
         /* Navigation */
         .nav-container {
-            text-align: center;
-            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
         }
 
         .hamburger {
@@ -46,7 +47,6 @@
             color: #ffcc33;
             transition: transform 0.3s ease;
             display: inline-block;
-            margin-top: 10px;
         }
 
         .hamburger:hover {
@@ -59,9 +59,10 @@
             padding: 1rem;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            max-width: 250px;
-            margin: 10px auto;
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            width: 200px;
             animation: slideDown 0.3s ease-in-out;
         }
 
@@ -126,11 +127,12 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .menu {
-                width: 80%;
+                left: 10px;
+                width: 180px;
             }
 
             .hamburger {
-                margin-top: 5px;
+                margin-left: 10px;
             }
         }
     </style>
@@ -141,7 +143,7 @@
         <h1>About Pagani</h1>
     </header>
 
-    <!-- Hamburger Menu Below Header -->
+    <!-- Hamburger Menu Below Header (On Left Side) -->
     <div class="nav-container">
         <span class="hamburger" id="hamburger">&#9776;</span>
         <div class="menu" id="menu">
