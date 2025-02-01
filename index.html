@@ -26,21 +26,11 @@
 
         /* Gradient Animation */
         @keyframes gradientAnimation {
-            0% {
-                background: linear-gradient(135deg, #1d1e26, #3e4c6d);
-            }
-            25% {
-                background: linear-gradient(135deg, #2a2a72, #009ffd);
-            }
-            50% {
-                background: linear-gradient(135deg, #ff6b6b, #d76d77);
-            }
-            75% {
-                background: linear-gradient(135deg, #3a1c71, #ffaf7b);
-            }
-            100% {
-                background: linear-gradient(135deg, #1d1e26, #3e4c6d);
-            }
+            0% { background: linear-gradient(135deg, #1d1e26, #3e4c6d); }
+            25% { background: linear-gradient(135deg, #2a2a72, #009ffd); }
+            50% { background: linear-gradient(135deg, #ff6b6b, #d76d77); }
+            75% { background: linear-gradient(135deg, #3a1c71, #ffaf7b); }
+            100% { background: linear-gradient(135deg, #1d1e26, #3e4c6d); }
         }
 
         header {
@@ -55,9 +45,8 @@
             background: transparent;
             padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start; /* Align hamburger to the left */
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -66,7 +55,12 @@
         .hamburger {
             font-size: 28px;
             cursor: pointer;
-            color: #ffcc33; /* Blended with color palette */
+            color: #ffcc33; /* Matching color palette */
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
         }
 
         .menu {
@@ -75,10 +69,16 @@
             top: 100%;
             left: 0;
             width: 100%;
-            background: #444;
+            background: rgba(51, 51, 51, 0.9); /* Transparent Dark Gray */
             padding: 1rem;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.3s ease-in-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .menu.active {
@@ -165,13 +165,12 @@
             }
 
             nav {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
             }
 
             .hamburger {
-                display: block;
-                margin-left: auto;
+                margin-right: auto; /* Ensures it stays on the left */
             }
 
             .menu a {
@@ -202,30 +201,15 @@
         <div class="row">
             <div class="column">
                 <h2>Planning and Design</h2>
-                <p><strong>Requirement Analysis:</strong> Define the website's purpose, target audience, and goals.</p>
-                <p><strong>Wireframing and Prototyping:</strong> Create visual layouts for the structure and functionality.</p>
-                <p><strong>UI/UX Design:</strong> Focus on user experience and aesthetic appeal using tools like Figma or Adobe XD.</p>
-                <p><strong>Content Strategy:</strong> Plan the website's text, images, and multimedia.</p>
-                <p><strong>Technology Stack Selection:</strong> Decide on front-end (HTML, CSS, JavaScript), back-end (Node.js, Django), and CMS (WordPress, Drupal).</p>
+                <p>Requirement Analysis: Define the website's purpose, target audience, and goals.</p>
             </div>
             <div class="column">
                 <h2>Development and Integration</h2>
-                <p><strong>Front-End Development:</strong> Use HTML, CSS, and JavaScript to develop responsive layouts.</p>
-                <p><strong>Back-End Development:</strong> Create server-side logic using languages like Python, PHP, or Java.</p>
-                <p><strong>Database Integration:</strong> Store and retrieve data using MySQL, MongoDB, etc.</p>
-                <p><strong>API Integration:</strong> Connect third-party services like payment gateways or social logins.</p>
-                <p><strong>Version Control:</strong> Use tools like Git to manage and track code changes.</p>
-                <strong>Testing:</strong>
-                <p>Perform unit tests, integration tests, and cross-browser compatibility checks.</p>
+                <p>Front-End Development: Use HTML, CSS, and JavaScript to develop responsive layouts.</p>
             </div>
             <div class="column">
                 <h2>Deployment / Maintenance</h2>
-                <p><strong>Hosting Setup:</strong> Choose a hosting provider (e.g., AWS, Bluehost) and configure the server.</p>
-                <p><strong>Domain Configuration:</strong> Purchase and link a domain to your hosting.</p>
-                <p><strong>SEO Optimization:</strong> Optimize for search engines with meta tags, sitemaps, and structured data.</p>
-                <p><strong>Website Launch:</strong> Go live after final reviews and stakeholder approvals.</p>
-                <p><strong>Monitoring and Updates:</strong> Use analytics tools to track performance and address issues.</p>
-                <p><strong>Regular Maintenance:</strong> Update software, fix bugs, and refresh content regularly.</p>
+                <p>Hosting Setup: Choose a hosting provider and configure the server.</p>
             </div>
         </div>
     </div>
@@ -234,30 +218,13 @@
         <p>&copy; This is only to learn</p>
     </footer>
 
-    <button id="back-to-top" onclick="scrollToTop()">↑</button>
-
     <script>
-        // Hamburger Menu Toggle
         const hamburger = document.getElementById("hamburger");
         const menu = document.getElementById("menu");
 
         hamburger.addEventListener("click", () => {
             menu.classList.toggle("active");
         });
-
-        // Back to Top Button Visibility
-        window.onscroll = function () {
-            const backToTopButton = document.getElementById("back-to-top");
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
     </script>
 </body>
 </html>
